@@ -1,0 +1,17 @@
+{
+    "name": "amadi/geo",
+    "type": "symfony-bundle",
+    "description": "GeoIP Bundle",
+    "keywords": ["bundle", "geo", "geoip"],
+    "homepage": "",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": ">=2.0",
+    },
+    "autoload": {
+        "psr-0": {
+            "Amadi": ""
+        }
+    }
+}
