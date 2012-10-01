@@ -35,7 +35,7 @@ class District
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -55,7 +55,7 @@ class District
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -70,7 +70,7 @@ class District
     /**
      * Set countryId
      *
-     * @param Amadi\GeoBundle\Entity\Country $countryId
+     * @param \Amadi\GeoBundle\Entity\Country $countryId
      */
     public function setCountryId(\Amadi\GeoBundle\Entity\Country $countryId)
     {
@@ -80,7 +80,7 @@ class District
     /**
      * Get countryId
      *
-     * @return Amadi\GeoBundle\Entity\Country
+     * @return \Amadi\GeoBundle\Entity\Country
      */
     public function getCountryId()
     {

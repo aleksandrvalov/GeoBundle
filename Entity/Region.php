@@ -3,6 +3,8 @@ namespace Amadi\GeoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Amadi\GeoBundle\Entity\District;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="geo_region")
@@ -33,7 +35,7 @@ class Region
     /**
      * Get region_id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -53,7 +55,7 @@ class Region
     /**
      * Get region
      *
-     * @return string 
+     * @return string
      */
     public function getRegion()
     {
@@ -63,9 +65,9 @@ class Region
     /**
      * Set district
      *
-     * @param Amadi\GeoBundle\Entity\District $district
+     * @param District $district
      */
-    public function setDistrict(\Amadi\GeoBundle\Entity\District $district)
+    public function setDistrict(District $district)
     {
         $this->district = $district;
     }
@@ -73,14 +75,15 @@ class Region
     /**
      * Get district
      *
-     * @return Amadi\GeoBundle\Entity\District
+     * @return District
      */
     public function getDistrict()
     {
         return $this->district;
     }
 
-    public function __toString(){
+    public function __toString()
+    {
         return $this->getRegion();
     }
 }

@@ -16,14 +16,15 @@ class GeoController extends Controller
     /**
      * @return mixed
      */
-    public function showRegionAction(){
-        if ($this->container->get('request')->isXmlHttpRequest()){
+    public function showRegionAction()
+    {
+        if ($this->container->get('request')->isXmlHttpRequest()) {
             $em = $this->getDoctrine()->getEntityManager();
             $regions = $em->getRepository('AmadiGeoBundle:Region')->findAll();
             $districts = $em->getRepository('AmadiGeoBundle:District')->findByCountryId('2');
             return $this->render('AmadiGeoBundle::region.html.twig', array(
-                    'regions'      => $regions,
-                    'districts'      => $districts,
+                    'regions' => $regions,
+                    'districts' => $districts,
                 )
             );
         }
@@ -34,7 +35,8 @@ class GeoController extends Controller
      * @return mixed
      * @todo В редиректе укажите роут страницы, на которую нужно направлять пользователя после выбора региона
      */
-    public function selectRegionAction($code){
+    public function selectRegionAction($code)
+    {
         $request = $this->getRequest();
         $em = $this->getDoctrine()->getEntityManager();
         $regions = $em->getRepository('AmadiGeoBundle:Region')->findOneById($code);

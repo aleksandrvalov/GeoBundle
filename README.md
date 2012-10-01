@@ -5,21 +5,24 @@ GeoBundle
 
 ### Установка
 
-Для установки бандла вам необходимо создать папку `src/Amadi/GeoBundle` и скопировать туда сам бандл.
+Для установки бандла вам необходимо пропписать в deps
+```
+[GeoBundle]
+    git=git://github.com/Amadi/GeoBundle.git
+    target=bundles/Amadi/GeoBundle
+```
 
 Поправить файл `/app/AppKernel.php`:
 ```
 $bundles = array(
             ...
-            new Amadi\GeoBundle\AmadiGeoBundle(),
+            new Amadi\GeoBundle\GeoBundle(),
         );
 ```
-А так же файл `/app/config/config.php`, добавив в него следующие строки
+
+Поправить файл `/app/autoload.conf`:
 ```
-services:
-  geo:
-    class: Amadi\GeoBundle\Service\Geo
-    arguments: [@doctrine.orm.default_entity_manager, @security.context]
+    'Amadi'                                     => __DIR__.'/../vendor/bundles',
 ```
 
 База данных IP адресов с регионами, областями и городами РФ и Украины находится в файле `/ipGeoBase.sql`

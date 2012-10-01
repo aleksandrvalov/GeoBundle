@@ -11,17 +11,12 @@ class City
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="city_id", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      * @var integer $id
      */
-    protected $id;
-
-    /**
-     * @ORM\Column(type="string", length="128")
-     */
-    private $city;
+    private $id;
 
     /**
      * Округ
@@ -31,43 +26,28 @@ class City
     private $region;
 
     /**
-     * @ORM\Column(type="float", nullable="true")
+     * @ORM\Column(name="lat", type="float", nullable="true")
      */
     private $lat;
 
     /**
-     * @ORM\Column(type="float", nullable="true")
+     * @ORM\Column(name="lng", type="float", nullable="true")
      */
     private $lng;
 
     /**
+     * @ORM\Column(name="district", type="integer", nullable="true")
+     */
+    private $district;
+
+    /**
      * Get city_id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string 
-     */
-    public function getCity()
-    {
-        return $this->city;
     }
 
     /**
@@ -83,7 +63,7 @@ class City
     /**
      * Get region
      *
-     * @return string 
+     * @return string
      */
     public function getRegion()
     {
@@ -91,9 +71,7 @@ class City
     }
 
     /**
-     * Set district
-     *
-     * @param string $district
+     * @param $district
      */
     public function setDistrict($district)
     {
@@ -101,9 +79,7 @@ class City
     }
 
     /**
-     * Get district
-     *
-     * @return string 
+     * @return mixed
      */
     public function getDistrict()
     {
@@ -123,7 +99,7 @@ class City
     /**
      * Get lat
      *
-     * @return float 
+     * @return float
      */
     public function getLat()
     {
@@ -143,14 +119,17 @@ class City
     /**
      * Get lng
      *
-     * @return float 
+     * @return float
      */
     public function getLng()
     {
         return $this->lng;
     }
 
-    public function __toString(){
+    public function __toString()
+    {
         return $this->city;
     }
+
+
 }
