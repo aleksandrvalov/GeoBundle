@@ -49,7 +49,7 @@ class IpRepository extends EntityRepository
                 AND
                     gb.long_ip2 >= %s
         ", $longIp, $longIp))->fetchAll(\PDO::FETCH_ASSOC);
-        if (isset($result) && is_array($result)) {
+        if (isset($result) && is_array($result) && isset($result[0])) {
             return $result[0];
         }
 
