@@ -5,14 +5,14 @@ namespace Amadi\GeoBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\NoResultException;
 
-class IpRepository extends EntityRepository
+class GeoCityRepository extends EntityRepository
 {
     /**
      * @param $longIp
      *
      * @throws \Doctrine\ORM\NoResultException
      *
-     * @return \Amadi\GeoBundle\Entity\City
+     * @return \Amadi\GeoBundle\Entity\GeoCity
      */
 //    public function rangeIp($longIp)
 //    {

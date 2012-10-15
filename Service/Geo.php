@@ -67,7 +67,7 @@ class Geo
      */
     private function findInRange()
     {
-        $city = $this->getIpRepository()->rangeIp(ip2long($this->ip));
+        $city = $this->getGeoCityRepository()->rangeIp(ip2long($this->ip));
         return $city;
     }
 
@@ -108,10 +108,10 @@ class Geo
     }
 
     /**
-     * @return \Amadi\GeoBundle\Repository\IpRepository
+     * @return \Amadi\GeoBundle\Repository\GeoCityRepository
      */
-    private function getIpRepository()
+    private function getGeoCityRepository()
     {
-        return $this->em->getRepository('AmadiGeoBundle:Ip');
+        return $this->em->getRepository('AmadiGeoBundle:GeoCity');
     }
 }
