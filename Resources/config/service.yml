@@ -1,4 +1,4 @@
 services:
   geo:
     class: Amadi\GeoBundle\Service\Geo
-    arguments: [@doctrine.orm.default_entity_manager, @security.context]
+    arguments: ["@doctrine.orm.default_entity_manager", "@security.authorization_checker"]

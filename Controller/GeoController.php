@@ -3,7 +3,6 @@
 namespace Amadi\GeoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -19,7 +18,7 @@ class GeoController extends Controller
     public function showRegionAction()
     {
         if ($this->container->get('request')->isXmlHttpRequest()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $regions = $em->getRepository('AmadiGeoBundle:Region')->findAll();
             $districts = $em->getRepository('AmadiGeoBundle:District')->findByCountryId('2');
             return $this->render('AmadiGeoBundle::region.html.twig', array(
@@ -38,7 +37,7 @@ class GeoController extends Controller
     public function selectRegionAction($code)
     {
         $request = $this->getRequest();
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $regions = $em->getRepository('AmadiGeoBundle:Region')->findOneById($code);
         $geo = $this->container->get('geo')->init($request)->puts($regions);
         return $this->redirect($this->generateUrl('_index_page'));

@@ -4,7 +4,7 @@ namespace Amadi\GeoBundle\Service;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -23,9 +23,9 @@ class Geo
      */
     protected $em;
     /**
-     * @var \Symfony\Component\Security\Core\SecurityContext
+     * @var Symfony\Component\Security\Core\Authorization\AuthorizationChecker
      */
-    protected $securityContext;
+    protected $authorizationChecker;
     /**
      * @var \Symfony\Component\HttpFoundation\Request $request
      */
@@ -35,10 +35,10 @@ class Geo
      */
     protected $ip;
 
-    public function __construct(EntityManager $entityManager, SecurityContext $securityContext)
+    public function __construct(EntityManager $entityManager, AuthorizationChecker $authorizationChecker)
     {
         $this->em = $entityManager;
-        $this->securityContext = $securityContext;
+        $this->authorizationChecker = $authorizationChecker;
     }
 
     /**
